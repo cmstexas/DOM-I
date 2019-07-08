@@ -28,7 +28,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
+    "address" : "123 Way 456 Street </br> Somewhere, USA",
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -53,36 +53,59 @@ document.getElementById("middle-img").setAttribute("src", "img/mid-page-accent.j
 
 const nav = document.querySelector("nav");
 const childNodes = nav.childNodes;
-childNodes[1].innerText = siteContent["nav"]["nav-item-1"];
-childNodes[3].innerText = siteContent["nav"]["nav-item-2"];
-childNodes[5].innerText = siteContent["nav"]["nav-item-3"];
-childNodes[7].innerText = siteContent["nav"]["nav-item-4"];
-childNodes[9].innerText = siteContent["nav"]["nav-item-5"];
-childNodes[11].innerText = siteContent["nav"]["nav-item-6"];
+childNodes[1].textContent = siteContent["nav"]["nav-item-1"];
+childNodes[3].textContent = siteContent["nav"]["nav-item-2"];
+childNodes[5].textContent = siteContent["nav"]["nav-item-3"];
+childNodes[7].textContent = siteContent["nav"]["nav-item-4"];
+childNodes[9].textContent = siteContent["nav"]["nav-item-5"];
+childNodes[11].textContent = siteContent["nav"]["nav-item-6"];
 
+// //added July 8//
+// nav.forEach((link, index) => {
+//   link.textContent = siteContent.nav[`nav-item-${index + 1}`];
+// });
+
+//ADDING TO NAV BAR//
 const newItem = document.createElement("a");
-newItem.innerText = 'Member Sign In';
+newItem.textContent = 'Member Sign In';
 newItem.href = '#';
 nav.appendChild(newItem);
 
 const newItem2 = document.createElement("a");
-newItem2.innerText = 'Home';
+newItem2.textContent = 'Home';
 newItem2.href = '#';
 nav.prepend(newItem2);
 
+//ADDED JULY 8//
+const julyItem = document.createElement("a");
+julyItem.textContent = 'Register';
+julyItem.href = 'google.com';
+nav.appendChild(julyItem);
 
 
+// //STYLING NAV BAR//
 const navItems = document.querySelectorAll("a");
-for (let i = 0; i < navItems.length; i++) {
-navItems[i].style.color = "limegreen";
-}
+// for (let i = 0; i < navItems.length; i++) {
+// navItems[i].style.color = "limegreen";
+// //ADDED JULY 8//
+// navItems[i].style.fontWeight = "bold";
+// }
 
+navItems.forEach (link => {
+  link.style.color = "limegreen";
+  link.style.fontWeight = "bold";
+})
 
 //CTA TEXT SECTION//
 
 const cta = document.querySelector(".cta-text");
 cta.childNodes[1].innerHTML = siteContent["cta"]["h1"]
 cta.childNodes[3].innerText = siteContent["cta"]["button"];
+
+//ADDED JULY 8//
+const buttonItem = document.querySelector("button");
+buttonItem.style.backgroundColor = "dodgerblue";
+buttonItem.style.color = "white";
 
 
 //TOP CONTENT SECTION//
@@ -121,21 +144,23 @@ const contactHeader = document.querySelectorAll('.contact h4');
 const contactText = document.querySelectorAll('.contact p');
 
 contactHeader[0].textContent = siteContent.contact['contact-h4'];
-contactText[0].textContent = siteContent.contact.address;
+contactText[0].innerHTML = siteContent.contact.address;
 contactText[1].textContent = siteContent.contact.phone;
 contactText[2].textContent = siteContent.contact.email;
+
+document.querySelector(".contact .address").style.whiteSpace = 'pre';
 
 
 //FOOTER//
 
 const footer = document.querySelector('footer');
-footer.childNodes[1].textContent = siteContent.footer.copyright;
+footer.childNodes[1].innerHTML = siteContent.footer.copyright;
 
 
 //STRETCH//
 
 
-// fixed nav//
+// // fixed nav//
 
 const header = document.querySelector("header");
 header.style.position = "fixed";
