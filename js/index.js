@@ -51,6 +51,8 @@ document.getElementById("middle-img").setAttribute("src", "img/mid-page-accent.j
 
 //NAV SECTION//
 
+//NAV SECTION//
+
 const nav = document.querySelector("nav");
 const childNodes = nav.childNodes;
 childNodes[1].textContent = siteContent["nav"]["nav-item-1"];
@@ -60,8 +62,9 @@ childNodes[7].textContent = siteContent["nav"]["nav-item-4"];
 childNodes[9].textContent = siteContent["nav"]["nav-item-5"];
 childNodes[11].textContent = siteContent["nav"]["nav-item-6"];
 
+
 // //added July 8//
-// nav.forEach((link, index) => {
+// navNew.forEach((link, index) => {
 //   link.textContent = siteContent.nav[`nav-item-${index + 1}`];
 // });
 
@@ -92,7 +95,7 @@ const navItems = document.querySelectorAll("a");
 // }
 
 navItems.forEach (link => {
-  link.style.color = "limegreen";
+  link.style.color = "dodgerblue";
   link.style.fontWeight = "bold";
 })
 
@@ -106,6 +109,11 @@ cta.childNodes[3].innerText = siteContent["cta"]["button"];
 const buttonItem = document.querySelector("button");
 buttonItem.style.backgroundColor = "dodgerblue";
 buttonItem.style.color = "white";
+
+buttonItem.onmouseover = (event => {
+  event.target.style.boxShadow = '0px, 2px, 4px, red';
+  event.target.style.backgroundColor = 'red';
+})
 
 
 //TOP CONTENT SECTION//
